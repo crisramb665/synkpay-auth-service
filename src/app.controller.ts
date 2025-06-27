@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+/** npm imports */
+import { Controller, Get, HttpCode } from '@nestjs/common'
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @HttpCode(200)
+  health(): string {
+    return 'SynkPay Auth Service is running successfully!'
   }
 }
